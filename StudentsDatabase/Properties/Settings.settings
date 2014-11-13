@@ -23,5 +23,17 @@
     <Setting Name="StudentsGridStyle" Type="MetroFramework.MetroColorStyle" Scope="User">
       <Value Profile="(Default)">Lime</Value>
     </Setting>
+    <Setting Name="CitiesHeaderTextSize" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">14</Value>
+    </Setting>
+    <Setting Name="StudentsHeaderTextSize" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">14</Value>
+    </Setting>
+    <Setting Name="StudentsRowsTextSize" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">14</Value>
+    </Setting>
+    <Setting Name="CitiesRowsTextSize" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">14</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

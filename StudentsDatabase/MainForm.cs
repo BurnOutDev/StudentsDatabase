@@ -31,6 +31,14 @@ namespace StudentsDatabase.Design
         public MainForm()
         {
             InitializeComponent();
+            ChangeControlTheme(Properties.Settings.Default.MainTheme, menuStrip);
+            metroGrid1.Theme = 
+                metroGrid4.Theme = 
+                Properties.Settings.Default.MainTheme;
+            mTileAbout.Style =
+                mTileSettings.Style =
+                Properties.Settings.Default.DefaultStyle;
+            
         }
 
         private void mTileSettings_Click(object sender, EventArgs e)
@@ -39,24 +47,46 @@ namespace StudentsDatabase.Design
             settingsForm.ShowDialog();
         }
 
-        //private void ChangeControlTheme(MetroThemeStyle style, Control control)
-        //{
-        //    switch (style)
-        //    {
-        //        case MetroThemeStyle.Dark:
-        //            control.BackColor = Color.Black;
-        //            control.ForeColor = Color.White;
-        //            break;
-        //        case MetroThemeStyle.Light:
-        //            control.BackColor = Color.White;
-        //            control.ForeColor = Color.Black;
-        //            break;
-        //        case MetroThemeStyle.Default:
-        //            break;
-        //        default:
-        //            break;
-        //    }
-        //}
+        private void ChangeControlTheme(MetroThemeStyle style, Control control)
+        {
+            switch (style)
+            {
+                case MetroThemeStyle.Dark:
+                    control.BackColor = Color.Black;
+                    control.ForeColor = Color.White;
+                    break;
+                case MetroThemeStyle.Light:
+                    control.BackColor = Color.White;
+                    control.ForeColor = Color.Black;
+                    break;
+                case MetroThemeStyle.Default:
+                    break;
+                default:
+                    break;
+            }
+
+            if (control.GetType() == typeof(MenuStrip))
+            {
+                foreach (ToolStripMenuItem item in (control as MenuStrip).Items)
+                {
+                    switch (style)
+                    {
+                        case MetroThemeStyle.Dark:
+                            item.BackColor = Color.Black;
+                            item.ForeColor = Color.White;
+                            break;
+                        case MetroThemeStyle.Light:
+                            item.BackColor = Color.White;
+                            item.ForeColor = Color.Black;
+                            break;
+                        case MetroThemeStyle.Default:
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+        }
 
         private void fileToolStripMenuItem_DropDownOpening(object sender, EventArgs e)
         {

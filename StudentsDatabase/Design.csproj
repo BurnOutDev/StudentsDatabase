@@ -57,14 +57,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="Class2.cs" />
-    <Compile Include="CustomMenuStrip.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="CustomMenuStrip.Designer.cs">
-      <DependentUpon>CustomMenuStrip.cs</DependentUpon>
-    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,17 +79,9 @@
     <Compile Include="SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CustomMenuStrip.resx">
-      <DependentUpon>CustomMenuStrip.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="obj\Debug\StudentsDatabase.Design.MainForm.resources" />
-    <EmbeddedResource Include="obj\Debug\StudentsDatabase.MainForm.resources" />
-    <EmbeddedResource Include="obj\Debug\StudentsDatabase.Properties.Resources.resources" />
-    <EmbeddedResource Include="obj\Debug\StudentsDatabase.SettingsForm.resources" />
-    <EmbeddedResource Include="obj\Debug\System.Windows.Forms.CustomMenuStrip.resources" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -117,13 +101,6 @@
     <None Include="bin\Debug\StudentsDatabase.exe.config" />
     <None Include="bin\Debug\StudentsDatabase.vshost.exe.config" />
     <None Include="bin\Debug\StudentsDatabase.vshost.exe.manifest" />
-    <None Include="obj\Debug\build.force" />
-    <None Include="obj\Debug\Design.csproj.GenerateResource.Cache" />
-    <None Include="obj\Debug\Design.csprojResolveAssemblyReference.cache" />
-    <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
-    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <None Include="obj\Debug\StudentsDatabase.csproj.GenerateResource.Cache" />
-    <None Include="obj\Debug\StudentsDatabase.csprojResolveAssemblyReference.cache" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -160,11 +137,6 @@
     <Content Include="Libs\MetroFramework.Design.dll" />
     <Content Include="Libs\MetroFramework.dll" />
     <Content Include="Libs\MetroFramework.Fonts.dll" />
-    <Content Include="obj\Debug\Design.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\Debug\StudentsDatabase.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\Debug\StudentsDatabase.exe" />
-    <Content Include="obj\Debug\StudentsDatabase.pdb" />
-    <Content Include="obj\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Release\" />

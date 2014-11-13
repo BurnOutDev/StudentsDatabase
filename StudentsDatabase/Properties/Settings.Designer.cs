@@ -106,5 +106,53 @@ namespace StudentsDatabase.Properties {
                 this["StudentsGridStyle"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("14")]
+        public int CitiesHeaderTextSize {
+            get {
+                return ((int)(this["CitiesHeaderTextSize"]));
+            }
+            set {
+                this["CitiesHeaderTextSize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("14")]
+        public int StudentsHeaderTextSize {
+            get {
+                return ((int)(this["StudentsHeaderTextSize"]));
+            }
+            set {
+                this["StudentsHeaderTextSize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("14")]
+        public int StudentsRowsTextSize {
+            get {
+                return ((int)(this["StudentsRowsTextSize"]));
+            }
+            set {
+                this["StudentsRowsTextSize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("14")]
+        public int CitiesRowsTextSize {
+            get {
+                return ((int)(this["CitiesRowsTextSize"]));
+            }
+            set {
+                this["CitiesRowsTextSize"] = value;
+            }
+        }
     }
 }
