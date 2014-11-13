@@ -32,8 +32,8 @@ namespace StudentsDatabase.Design
         {
             InitializeComponent();
             ChangeControlTheme(Properties.Settings.Default.MainTheme, menuStrip);
-            metroGrid1.Theme = 
-                metroGrid4.Theme = 
+            metroGrid1.Theme =
+                metroGrid4.Theme =
                 Properties.Settings.Default.MainTheme;
             mTileAbout.Style =
                 mTileSettings.Style =
@@ -113,7 +113,7 @@ namespace StudentsDatabase.Design
         {
             if (this.Theme == MetroThemeStyle.Dark)
             {
-                (sender as ToolStripMenuItem).ForeColor = Color.White; 
+                (sender as ToolStripMenuItem).ForeColor = Color.White;
             }
         }
 
@@ -135,6 +135,24 @@ namespace StudentsDatabase.Design
             Properties.Settings.Default.IsMaximized = this.WindowState == FormWindowState.Maximized;
 
             Properties.Settings.Default.Save();
+        }
+
+        private void metroTextBox1_Enter(object sender, EventArgs e)
+        {
+            if (metroTextBox1.Text == "ძებნა...")
+            {
+                metroTextBox1.Clear();
+            }
+            metroTextBox1.ForeColor = MetroColors.Silver;
+        }
+
+        private void metroTextBox1_Leave(object sender, EventArgs e)
+        {
+            if (metroTextBox1.Text == "")
+            {
+                metroTextBox1.Text = "ძებნა...";
+                metroTextBox1.ForeColor = MetroColors.Black;
+            }
         }
     }
 }
