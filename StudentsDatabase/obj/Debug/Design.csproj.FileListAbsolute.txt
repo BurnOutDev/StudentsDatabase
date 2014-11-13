@@ -1,0 +1,11 @@
+c:\users\burnout\documents\visual studio 2013\Projects\StudentsDatabase\StudentsDatabase\obj\Debug\StudentsDatabase.Design.MainForm.resources
+c:\users\burnout\documents\visual studio 2013\Projects\StudentsDatabase\StudentsDatabase\obj\Debug\StudentsDatabase.Properties.Resources.resources
+c:\users\burnout\documents\visual studio 2013\Projects\StudentsDatabase\StudentsDatabase\obj\Debug\Design.csproj.GenerateResource.Cache
+c:\users\burnout\documents\visual studio 2013\Projects\StudentsDatabase\StudentsDatabase\obj\Debug\StudentsDatabase.exe
+c:\users\burnout\documents\visual studio 2013\Projects\StudentsDatabase\StudentsDatabase\obj\Debug\StudentsDatabase.pdb
+c:\users\burnout\documents\visual studio 2013\Projects\StudentsDatabase\StudentsDatabase\bin\Debug\StudentsDatabase.exe.config
+c:\users\burnout\documents\visual studio 2013\Projects\StudentsDatabase\StudentsDatabase\bin\Debug\StudentsDatabase.exe
+c:\users\burnout\documents\visual studio 2013\Projects\StudentsDatabase\StudentsDatabase\bin\Debug\StudentsDatabase.pdb
+c:\users\burnout\documents\visual studio 2013\Projects\StudentsDatabase\StudentsDatabase\obj\Debug\Design.csprojResolveAssemblyReference.cache
+c:\users\burnout\documents\visual studio 2013\Projects\StudentsDatabase\StudentsDatabase\obj\Debug\StudentsDatabase.SettingsForm.resources
+c:\users\burnout\documents\visual studio 2013\Projects\StudentsDatabase\StudentsDatabase\obj\Debug\System.Windows.Forms.CustomMenuStrip.resources
