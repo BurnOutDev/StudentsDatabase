@@ -38,7 +38,18 @@ namespace StudentsDatabase.Design
             mTileAbout.Style =
                 mTileSettings.Style =
                 Properties.Settings.Default.DefaultStyle;
-            
+
+            foreach (DataGridViewColumn column in metroGrid1.Columns)
+            {
+                column.HeaderCell.Style.Font = MetroFonts.Default(Properties.Settings.Default.CitiesHeaderTextSize);
+                column.DefaultCellStyle.Font = MetroFonts.Default(Properties.Settings.Default.CitiesRowsTextSize);
+            }
+
+            foreach (DataGridViewColumn column in metroGrid4.Columns)
+            {
+                column.HeaderCell.Style.Font = MetroFonts.Default(Properties.Settings.Default.StudentsHeaderTextSize);
+                column.DefaultCellStyle.Font = MetroFonts.Default(Properties.Settings.Default.StudentsRowsTextSize);
+            }
         }
 
         private void mTileSettings_Click(object sender, EventArgs e)
@@ -104,6 +115,26 @@ namespace StudentsDatabase.Design
             {
                 (sender as ToolStripMenuItem).ForeColor = Color.White; 
             }
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            if (Properties.Settings.Default.IsMaximized)
+                this.WindowState = FormWindowState.Maximized;
+            else
+            {
+                this.Size = Properties.Settings.Default.WindowSize;
+                this.Location = Properties.Settings.Default.WindowLocation;
+            }
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.WindowLocation = this.Location;
+            Properties.Settings.Default.WindowSize = this.Size;
+            Properties.Settings.Default.IsMaximized = this.WindowState == FormWindowState.Maximized;
+
+            Properties.Settings.Default.Save();
         }
     }
 }

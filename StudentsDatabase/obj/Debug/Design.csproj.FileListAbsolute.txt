@@ -1,6 +1,7 @@
 C:\Users\BurnOut\Documents\Visual Studio 2013\Projects\StudentsDatabase\StudentsDatabase\bin\Debug\StudentsDatabase.exe.config
 C:\Users\BurnOut\Documents\Visual Studio 2013\Projects\StudentsDatabase\StudentsDatabase\bin\Debug\StudentsDatabase.exe
 C:\Users\BurnOut\Documents\Visual Studio 2013\Projects\StudentsDatabase\StudentsDatabase\bin\Debug\StudentsDatabase.pdb
+C:\Users\BurnOut\Documents\Visual Studio 2013\Projects\StudentsDatabase\StudentsDatabase\obj\Debug\Design.csprojResolveAssemblyReference.cache
 C:\Users\BurnOut\Documents\Visual Studio 2013\Projects\StudentsDatabase\StudentsDatabase\obj\Debug\StudentsDatabase.Design.MainForm.resources
 C:\Users\BurnOut\Documents\Visual Studio 2013\Projects\StudentsDatabase\StudentsDatabase\obj\Debug\StudentsDatabase.Properties.Resources.resources
 C:\Users\BurnOut\Documents\Visual Studio 2013\Projects\StudentsDatabase\StudentsDatabase\obj\Debug\StudentsDatabase.SettingsForm.resources

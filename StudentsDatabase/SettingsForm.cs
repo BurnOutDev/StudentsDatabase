@@ -43,6 +43,15 @@ namespace StudentsDatabase
                 this.mLblRowTextSizeValue.Theme =
                 this.mStudentsHeaderColor.Theme =
                 Properties.Settings.Default.MainTheme;
+
+            metroComboBox1.SelectedIndex = (int)(Properties.Settings.Default.MainTheme) - 1;
+            mCbxStudentsColors.SelectedIndex = (int)(Properties.Settings.Default.StudentsGridStyle);
+            mCbxCitiesColors.SelectedIndex = (int)(Properties.Settings.Default.CitiesGridStyle);
+            mScrollHeaderTextSize.Value = (int)(Properties.Settings.Default.CitiesHeaderTextSize);
+            mScrollRowTexeSize.Value = Properties.Settings.Default.CitiesRowsTextSize;
+            mScrollStudentsHeaderTextSize.Value = Properties.Settings.Default.StudentsHeaderTextSize;
+            mScrollStudentsRowTexeSize.Value = Properties.Settings.Default.StudentsRowsTextSize;
+
         }
 
         private void mScrollHeaderTextSize_ValueChanged(object sender, EventArgs e)
@@ -83,7 +92,7 @@ namespace StudentsDatabase
                     Properties.Settings.Default.DefaultStyle = MetroColorStyle.White;
 
                 Properties.Settings.Default.Save();
-                MetroMessageBox.Show(this, "ცვლილებები შენახულია! \nგთხოვთ თავიდან ჩართოთ პროგრამა.");
+                MetroMessageBox.Show(this, "\nგთხოვთ თავიდან ჩართოთ პროგრამა.", "ცვლილებები შენახულია!", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 Application.Exit();
             }
         }

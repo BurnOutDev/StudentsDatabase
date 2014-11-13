@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.mBtnCancel = new MetroFramework.Controls.MetroButton();
             this.mTabControl = new MetroFramework.Controls.MetroTabControl();
             this.mTabCities = new MetroFramework.Controls.MetroTabPage();
             this.mLblRowTextSizeValue = new MetroFramework.Controls.MetroLabel();
@@ -40,8 +41,6 @@
             this.mCbxCitiesColors = new MetroFramework.Controls.MetroComboBox();
             this.mLblCitiesHeaderColor = new MetroFramework.Controls.MetroLabel();
             this.mTabStudents = new MetroFramework.Controls.MetroTabPage();
-            this.mBtnCancel = new MetroFramework.Controls.MetroButton();
-            this.mBtnSave = new MetroFramework.Controls.MetroButton();
             this.mLblStudentsRowTextSizeValue = new MetroFramework.Controls.MetroLabel();
             this.mLblStudentsHeaderTextSizeValue = new MetroFramework.Controls.MetroLabel();
             this.mScrollStudentsRowTexeSize = new MetroFramework.Controls.MetroTrackBar();
@@ -50,6 +49,7 @@
             this.mLblStudentsHeaderTextSize = new MetroFramework.Controls.MetroLabel();
             this.mCbxStudentsColors = new MetroFramework.Controls.MetroComboBox();
             this.mStudentsHeaderColor = new MetroFramework.Controls.MetroLabel();
+            this.mBtnSave = new MetroFramework.Controls.MetroButton();
             this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroToolTip1 = new MetroFramework.Components.MetroToolTip();
@@ -78,6 +78,16 @@
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
+            // 
+            // mBtnCancel
+            // 
+            this.mBtnCancel.Location = new System.Drawing.Point(314, 249);
+            this.mBtnCancel.Name = "mBtnCancel";
+            this.mBtnCancel.Size = new System.Drawing.Size(75, 23);
+            this.mBtnCancel.TabIndex = 9;
+            this.mBtnCancel.Text = "გაუქმება";
+            this.mBtnCancel.UseSelectable = true;
+            this.mBtnCancel.Click += new System.EventHandler(this.mBtnCancel_Click);
             // 
             // mTabControl
             // 
@@ -179,6 +189,7 @@
             this.mCbxCitiesColors.FormattingEnabled = true;
             this.mCbxCitiesColors.ItemHeight = 23;
             this.mCbxCitiesColors.Items.AddRange(new object[] {
+            "თავდაპირველი",
             "შავი",
             "თეთრი",
             "ნაცრისფერი",
@@ -223,32 +234,12 @@
             this.mTabStudents.HorizontalScrollbarSize = 10;
             this.mTabStudents.Location = new System.Drawing.Point(4, 38);
             this.mTabStudents.Name = "mTabStudents";
-            this.mTabStudents.Size = new System.Drawing.Size(382, 176);
+            this.mTabStudents.Size = new System.Drawing.Size(382, 142);
             this.mTabStudents.TabIndex = 1;
             this.mTabStudents.Text = "სტუდენტები";
             this.mTabStudents.VerticalScrollbarBarColor = true;
             this.mTabStudents.VerticalScrollbarHighlightOnWheel = false;
             this.mTabStudents.VerticalScrollbarSize = 10;
-            // 
-            // mBtnCancel
-            // 
-            this.mBtnCancel.Location = new System.Drawing.Point(314, 249);
-            this.mBtnCancel.Name = "mBtnCancel";
-            this.mBtnCancel.Size = new System.Drawing.Size(75, 23);
-            this.mBtnCancel.TabIndex = 9;
-            this.mBtnCancel.Text = "გაუქმება";
-            this.mBtnCancel.UseSelectable = true;
-            this.mBtnCancel.Click += new System.EventHandler(this.mBtnCancel_Click);
-            // 
-            // mBtnSave
-            // 
-            this.mBtnSave.Location = new System.Drawing.Point(233, 249);
-            this.mBtnSave.Name = "mBtnSave";
-            this.mBtnSave.Size = new System.Drawing.Size(75, 23);
-            this.mBtnSave.TabIndex = 9;
-            this.mBtnSave.Text = "შენახვა";
-            this.mBtnSave.UseSelectable = true;
-            this.mBtnSave.Click += new System.EventHandler(this.metroButton1_Click);
             // 
             // mLblStudentsRowTextSizeValue
             // 
@@ -346,6 +337,16 @@
             this.mStudentsHeaderColor.Size = new System.Drawing.Size(118, 19);
             this.mStudentsHeaderColor.TabIndex = 2;
             this.mStudentsHeaderColor.Text = "სათაურის ფერი";
+            // 
+            // mBtnSave
+            // 
+            this.mBtnSave.Location = new System.Drawing.Point(233, 249);
+            this.mBtnSave.Name = "mBtnSave";
+            this.mBtnSave.Size = new System.Drawing.Size(75, 23);
+            this.mBtnSave.TabIndex = 9;
+            this.mBtnSave.Text = "შენახვა";
+            this.mBtnSave.UseSelectable = true;
+            this.mBtnSave.Click += new System.EventHandler(this.metroButton1_Click);
             // 
             // metroComboBox1
             // 
