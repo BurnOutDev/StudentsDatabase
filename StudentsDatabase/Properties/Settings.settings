@@ -1,0 +1,27 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="StudentsDatabase.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="MainTheme" Type="MetroFramework.MetroThemeStyle" Scope="User">
+      <Value Profile="(Default)">Light</Value>
+    </Setting>
+    <Setting Name="IsMaximized" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="WindowSize" Type="System.Drawing.Size" Scope="User">
+      <Value Profile="(Default)">845, 458</Value>
+    </Setting>
+    <Setting Name="WindowLocation" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">260, 135</Value>
+    </Setting>
+    <Setting Name="DefaultStyle" Type="MetroFramework.MetroColorStyle" Scope="User">
+      <Value Profile="(Default)">White</Value>
+    </Setting>
+    <Setting Name="CitiesGridStyle" Type="MetroFramework.MetroColorStyle" Scope="User">
+      <Value Profile="(Default)">Green</Value>
+    </Setting>
+    <Setting Name="StudentsGridStyle" Type="MetroFramework.MetroColorStyle" Scope="User">
+      <Value Profile="(Default)">Lime</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
