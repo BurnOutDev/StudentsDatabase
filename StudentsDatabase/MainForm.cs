@@ -1,4 +1,5 @@
 ﻿using MetroFramework;
+using MetroFramework.Controls;
 using MetroFramework.Forms;
 using System;
 using System.Collections.Generic;
@@ -32,20 +33,22 @@ namespace StudentsDatabase.Design
         {
             InitializeComponent();
             ChangeControlTheme(Properties.Settings.Default.MainTheme, menuStrip);
-            metroGrid1.Theme =
-                metroGrid4.Theme =
+            mGridCities.Theme =
+                mGridStudents.Theme =
+                metroTextBox1.Theme =
                 Properties.Settings.Default.MainTheme;
             mTileAbout.Style =
                 mTileSettings.Style =
+                metroTextBox1.Style =
                 Properties.Settings.Default.DefaultStyle;
 
-            foreach (DataGridViewColumn column in metroGrid1.Columns)
+            foreach (DataGridViewColumn column in mGridCities.Columns)
             {
                 column.HeaderCell.Style.Font = MetroFonts.Default(Properties.Settings.Default.CitiesHeaderTextSize);
                 column.DefaultCellStyle.Font = MetroFonts.Default(Properties.Settings.Default.CitiesRowsTextSize);
             }
 
-            foreach (DataGridViewColumn column in metroGrid4.Columns)
+            foreach (DataGridViewColumn column in mGridStudents.Columns)
             {
                 column.HeaderCell.Style.Font = MetroFonts.Default(Properties.Settings.Default.StudentsHeaderTextSize);
                 column.DefaultCellStyle.Font = MetroFonts.Default(Properties.Settings.Default.StudentsRowsTextSize);
@@ -152,6 +155,127 @@ namespace StudentsDatabase.Design
             {
                 metroTextBox1.Text = "ძებნა...";
                 metroTextBox1.ForeColor = MetroColors.Black;
+            }
+        }
+
+        private void დამატებაToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddCityForm addCityForm = new AddCityForm();
+            if (addCityForm.ShowDialog() == DialogResult.OK)
+            {
+                ReloadData();
+            }
+        }
+
+        private void ReloadData()
+        {
+
+        }
+
+        private void დამატებაToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var addStudentForm = new AddStudentForm();
+            if (addStudentForm.ShowDialog() == DialogResult.OK)
+            {
+                Refresh();
+            }
+        }
+
+        private void რედაქტირებაToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var editCityForm = new EditCityForm(5);
+            if (editCityForm.ShowDialog() == DialogResult.OK)
+            {
+                Refresh();
+            }
+        }
+
+        private void რედაქტირებაToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var editStudentForm = new EditStudentForm(5);
+            if (editStudentForm.ShowDialog() == DialogResult.OK)
+            {
+                Refresh();
+            }
+        }
+
+        private void წაშლაToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MetroMessageBox.Show(this, "ნამდვლად გსურთ ამ ქალაქის წაშლა?", "წაშლის ოპერაცია", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                throw new NotImplementedException("მეთოდი ცარიელია");
+            }
+        }
+
+        private void წაშლაToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (MetroMessageBox.Show(this, "ნამდვლად გსურთ ამ სტუდენტის წაშლა?", "წაშლის ოპერაცია", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                throw new NotImplementedException("მეთოდი ცარიელია");
+            }
+        }
+
+        private void mGridCities_SelectionChanged(object sender, EventArgs e)
+        {
+            if (mGridCities.SelectedRows.Count == 0)
+            {
+                bool forSkip = true;
+                foreach (ToolStripMenuItem item in (menuStrip.Items[0] as ToolStripMenuItem).DropDownItems)
+                {
+                    if (forSkip)
+                    {
+                        forSkip = false;
+                        continue;
+                    }
+
+                    item.Enabled = false;
+                }
+            }
+            else
+            {
+                bool forSkip = true;
+                foreach (ToolStripMenuItem item in (menuStrip.Items[0] as ToolStripMenuItem).DropDownItems)
+                {
+                    if (forSkip)
+                    {
+                        forSkip = false;
+                        continue;
+                    }
+
+                    item.Enabled = true;
+                }
+            }
+        }
+
+        private void mGridStudents_SelectionChanged(object sender, EventArgs e)
+        {
+            if (mGridStudents.SelectedRows.Count == 0)
+            {
+                bool forSkip = true;
+                foreach (ToolStripMenuItem item in (menuStrip.Items[1] as ToolStripMenuItem).DropDownItems)
+                {
+                    if (forSkip)
+                    {
+                        forSkip = false;
+                        continue;
+                    }
+
+                    item.Enabled = false;
+                }
+            }
+            else
+            {
+                bool forSkip = true;
+                foreach (ToolStripMenuItem item in (menuStrip.Items[0] as ToolStripMenuItem).DropDownItems)
+                {
+                    if (forSkip)
+                    {
+                        forSkip = false;
+                        continue;
+                    }
+
+                    item.Enabled = true;
+                }
             }
         }
     }
