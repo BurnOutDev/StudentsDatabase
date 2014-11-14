@@ -242,7 +242,6 @@ namespace StudentsDatabase.Design
             this.mGridStudents.Size = new System.Drawing.Size(617, 350);
             this.mGridStudents.Style = global::StudentsDatabase.Properties.Settings.Default.StudentsGridStyle;
             this.mGridStudents.TabIndex = 4;
-            this.mGridStudents.SelectionChanged += new System.EventHandler(this.mGridStudents_SelectionChanged);
             // 
             // FullName
             // 
@@ -455,7 +454,6 @@ namespace StudentsDatabase.Design
             this.mTileAbout.TileImage = global::StudentsDatabase.Properties.Resources.InfoBoldL1;
             this.mTileAbout.UseSelectable = true;
             this.mTileAbout.UseTileImage = true;
-            this.mTileAbout.Click += new System.EventHandler(this.mTileAbout_Click);
             // 
             // MainForm
             // 

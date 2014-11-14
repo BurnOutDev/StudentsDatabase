@@ -1,4 +1,5 @@
-﻿using MetroFramework;
+﻿using Entities;
+using MetroFramework;
 using MetroFramework.Controls;
 using MetroFramework.Forms;
 using System;
@@ -199,11 +200,25 @@ namespace StudentsDatabase.Design
 
         private void რედაქტირებაToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var editCityForm = new EditCityForm(5);
-            if (editCityForm.ShowDialog() == DialogResult.OK)
+
+            if (mGridCities.SelectedRows.Count != 0)
             {
-                ReFillDatagridviews();
+                string cityName = mGridStudents.SelectedRows[0].Cells[0].Value.ToString();
+
+                var ct = (from city in StudentsDb.Cities
+                          where city.CityName == cityName
+                          select city).FirstOrDefault();
+
+                var editCityForm = new EditCityForm(ct.City_id);
+                if (editCityForm.ShowDialog() == DialogResult.OK)
+                {
+                    ReFillDatagridviews();
+                }
             }
+
+            /////////////
+
+
         }
 
         private void რედაქტირებაToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -213,8 +228,8 @@ namespace StudentsDatabase.Design
                 string personalId = mGridStudents.SelectedRows[0].Cells[2].Value.ToString();
 
                 var st = (from student in StudentsDb.Students
-                              where student.PersonalID == personalId
-                              select student).FirstOrDefault();
+                          where student.PersonalID == personalId
+                          select student).FirstOrDefault();
 
                 var editStudentForm = new EditStudentForm(st.Student_id, StudentsDb);
                 if (editStudentForm.ShowDialog() == DialogResult.OK)
@@ -242,71 +257,97 @@ namespace StudentsDatabase.Design
 
         private void mGridCities_SelectionChanged(object sender, EventArgs e)
         {
-            if (mGridCities.SelectedRows.Count == 0)
+            //if (mGridCities.SelectedRows.Count == 0)
+            //{
+            //    bool forSkip = true;
+            //    foreach (ToolStripMenuItem item in (menuStrip.Items[0] as ToolStripMenuItem).DropDownItems)
+            //    {
+            //        if (forSkip)
+            //        {
+            //            forSkip = false;
+            //            continue;
+            //        }
+
+            //        item.Enabled = false;
+            //    }
+            //}
+            //else
+            //{
+            //    bool forSkip = true;
+            //    foreach (ToolStripMenuItem item in (menuStrip.Items[0] as ToolStripMenuItem).DropDownItems)
+            //    {
+            //        if (forSkip)
+            //        {
+            //            forSkip = false;
+            //            continue;
+            //        }
+
+            //        item.Enabled = true;
+            //    }
+            //}
+            if (mGridCities.SelectedRows.Count == 1)
             {
-                bool forSkip = true;
-                foreach (ToolStripMenuItem item in (menuStrip.Items[0] as ToolStripMenuItem).DropDownItems)
+                var student = from x in StudentsDb.Students
+                              where x.City.CityName == mGridCities.SelectedRows[0].Cells[0].Value
+                              select x;
+
+                ////////////////////////////
+                mGridStudents.Rows.Clear();
+
+                List<Student> students;
+
+                if (mGridCities.SelectedRows[0].Cells[0].Value == "ყველა")
+                    students = (from x in StudentsDb.Students
+                                select x).ToList<Student>();
+                else
+                    students = (from x in StudentsDb.Students
+                                where x.City.CityName == mGridCities.SelectedRows[0].Cells[0].Value
+                                select x).ToList<Student>();
+
+                foreach (var studentM in students)
                 {
-                    if (forSkip)
-                    {
-                        forSkip = false;
-                        continue;
-                    }
-
-                    item.Enabled = false;
+                    mGridStudents.Rows.Add
+                        (
+                            studentM.FirstName + studentM.LastName,
+                            studentM.PersonalID,
+                            studentM.PhoneNumber
+                        );
                 }
+
             }
-            else
-            {
-                bool forSkip = true;
-                foreach (ToolStripMenuItem item in (menuStrip.Items[0] as ToolStripMenuItem).DropDownItems)
-                {
-                    if (forSkip)
-                    {
-                        forSkip = false;
-                        continue;
-                    }
-
-                    item.Enabled = true;
-                }
-            }
-        }
-
-        private void mGridStudents_SelectionChanged(object sender, EventArgs e)
-        {
-            if (mGridStudents.SelectedRows.Count == 0)
-            {
-                bool forSkip = true;
-                foreach (ToolStripMenuItem item in (menuStrip.Items[1] as ToolStripMenuItem).DropDownItems)
-                {
-                    if (forSkip)
-                    {
-                        forSkip = false;
-                        continue;
-                    }
-
-                    item.Enabled = false;
-                }
-            }
-            else
-            {
-                bool forSkip = true;
-                foreach (ToolStripMenuItem item in (menuStrip.Items[0] as ToolStripMenuItem).DropDownItems)
-                {
-                    if (forSkip)
-                    {
-                        forSkip = false;
-                        continue;
-                    }
-
-                    item.Enabled = true;
-                }
-            }
-        }
-
-        private void mTileAbout_Click(object sender, EventArgs e)
-        {
-
+            ////////////////////////////
         }
     }
+
+    //private void mGridStudents_SelectionChanged(object sender, EventArgs e)
+    //{
+    //    //if (mGridStudents.SelectedRows.Count == 0)
+    //    //{
+    //    //    bool forSkip = true;
+    //    //    foreach (ToolStripMenuItem item in (menuStrip.Items[1] as ToolStripMenuItem).DropDownItems)
+    //    //    {
+    //    //        if (forSkip)
+    //    //        {
+    //    //            forSkip = false;
+    //    //            continue;
+    //    //        }
+
+    //    //        item.Enabled = false;
+    //    //    }
+    //    //}
+    //    //else
+    //    //{
+    //    //    bool forSkip = true;
+    //    //    foreach (ToolStripMenuItem item in (menuStrip.Items[0] as ToolStripMenuItem).DropDownItems)
+    //    //    {
+    //    //        if (forSkip)
+    //    //        {
+    //    //            forSkip = false;
+    //    //            continue;
+    //    //        }
+
+    //    //        item.Enabled = true;
+    //    //    }
+    //    //}
+    //}
 }
