@@ -15,20 +15,7 @@ namespace StudentsDatabase.Design
 {
     public partial class MainForm : MetroForm
     {
-        public Color BColor
-        {
-            get
-            {
-                return Properties.Settings.Default.MainTheme == MetroThemeStyle.Dark ? Color.Black : Color.White;
-            }
-        }
-        public Color FColor
-        {
-            get
-            {
-                return Properties.Settings.Default.MainTheme == MetroThemeStyle.Dark ? Color.White : Color.Black;
-            }
-        }
+        public StudentsDatabase.Database.StudentsDbContext StudentsDb { get; set; }
         public MainForm()
         {
             InitializeComponent();
@@ -44,14 +31,48 @@ namespace StudentsDatabase.Design
 
             foreach (DataGridViewColumn column in mGridCities.Columns)
             {
-                column.HeaderCell.Style.Font = MetroFonts.Default(Properties.Settings.Default.CitiesHeaderTextSize);
                 column.DefaultCellStyle.Font = MetroFonts.Default(Properties.Settings.Default.CitiesRowsTextSize);
+                column.HeaderCell.Style.Font = MetroFonts.Default(Properties.Settings.Default.CitiesHeaderTextSize);
+                //column.HeaderCell.Style.BackColor = MetroColors.Green;
             }
 
             foreach (DataGridViewColumn column in mGridStudents.Columns)
             {
-                column.HeaderCell.Style.Font = MetroFonts.Default(Properties.Settings.Default.StudentsHeaderTextSize);
                 column.DefaultCellStyle.Font = MetroFonts.Default(Properties.Settings.Default.StudentsRowsTextSize);
+                column.HeaderCell.Style.Font = MetroFonts.Default(Properties.Settings.Default.StudentsHeaderTextSize);
+                //column.HeaderCell.Style.BackColor = MetroColors.Lime;
+            }
+
+            #region Creating Database
+
+            StudentsDb = new Database.StudentsDbContext();
+
+            #endregion
+
+            ReFillDatagridviews();
+        }
+
+        private void ReFillDatagridviews()
+        {
+            mGridCities.Rows.Clear();
+            mGridStudents.Rows.Clear();
+
+            mGridCities.Rows.Add("ყველა");
+
+            var cities = from city in StudentsDb.Cities
+                         select city;
+
+            foreach (var city in cities)
+            {
+                mGridCities.Rows.Add(city.CityName);    
+            }
+
+            var students = from student in StudentsDb.Students
+                           select student;
+
+            foreach (var student in students)
+            {
+                mGridStudents.Rows.Add(student.FirstName, student.LastName, student.PersonalID, student.Email, student.PhoneNumber);
             }
         }
 
@@ -167,17 +188,12 @@ namespace StudentsDatabase.Design
             }
         }
 
-        private void ReloadData()
-        {
-
-        }
-
         private void დამატებაToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             var addStudentForm = new AddStudentForm();
             if (addStudentForm.ShowDialog() == DialogResult.OK)
             {
-                Refresh();
+                ReFillDatagridviews();
             }
         }
 
@@ -186,7 +202,7 @@ namespace StudentsDatabase.Design
             var editCityForm = new EditCityForm(5);
             if (editCityForm.ShowDialog() == DialogResult.OK)
             {
-                Refresh();
+                ReFillDatagridviews();
             }
         }
 
@@ -195,7 +211,7 @@ namespace StudentsDatabase.Design
             var editStudentForm = new EditStudentForm(5);
             if (editStudentForm.ShowDialog() == DialogResult.OK)
             {
-                Refresh();
+                ReFillDatagridviews();
             }
         }
 
@@ -277,6 +293,11 @@ namespace StudentsDatabase.Design
                     item.Enabled = true;
                 }
             }
+        }
+
+        private void mTileAbout_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

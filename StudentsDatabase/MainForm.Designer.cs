@@ -455,6 +455,7 @@ namespace StudentsDatabase.Design
             this.mTileAbout.TileImage = global::StudentsDatabase.Properties.Resources.InfoBoldL1;
             this.mTileAbout.UseSelectable = true;
             this.mTileAbout.UseTileImage = true;
+            this.mTileAbout.Click += new System.EventHandler(this.mTileAbout_Click);
             // 
             // MainForm
             // 
