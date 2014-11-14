@@ -64,7 +64,7 @@ namespace StudentsDatabase.Design
 
             foreach (var city in cities)
             {
-                mGridCities.Rows.Add(city.CityName);    
+                mGridCities.Rows.Add(city.CityName);
             }
 
             var students = from student in StudentsDb.Students
@@ -181,16 +181,16 @@ namespace StudentsDatabase.Design
 
         private void დამატებაToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddCityForm addCityForm = new AddCityForm();
+            AddCityForm addCityForm = new AddCityForm(StudentsDb);
             if (addCityForm.ShowDialog() == DialogResult.OK)
             {
-                ReloadData();
+                ReFillDatagridviews();
             }
         }
 
         private void დამატებაToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            var addStudentForm = new AddStudentForm();
+            var addStudentForm = new AddStudentForm(StudentsDb);
             if (addStudentForm.ShowDialog() == DialogResult.OK)
             {
                 ReFillDatagridviews();
@@ -208,10 +208,19 @@ namespace StudentsDatabase.Design
 
         private void რედაქტირებაToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            var editStudentForm = new EditStudentForm(5);
-            if (editStudentForm.ShowDialog() == DialogResult.OK)
+            if (mGridStudents.SelectedRows.Count != 0)
             {
-                ReFillDatagridviews();
+                string personalId = mGridStudents.SelectedRows[0].Cells[2].Value.ToString();
+
+                var st = (from student in StudentsDb.Students
+                              where student.PersonalID == personalId
+                              select student).FirstOrDefault();
+
+                var editStudentForm = new EditStudentForm(st.Student_id, StudentsDb);
+                if (editStudentForm.ShowDialog() == DialogResult.OK)
+                {
+                    ReFillDatagridviews();
+                }
             }
         }
 

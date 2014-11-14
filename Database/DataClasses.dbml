@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="StudentsDatabase" EntityNamespace="Entities" Class="StudentsDbContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=NOTEBOOK\SQLEXPRESS;Initial Catalog=StudentsDatabase;Integrated Security=True" SettingsObjectName="Database.Properties.Settings" SettingsPropertyName="StudentsDatabaseConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.City" Member="Cities">
+    <Type Name="City">
+      <Column Name="City_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CityName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="City_Student" Member="Students" ThisKey="City_id" OtherKey="City_id" Type="Student" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Students" Member="Students">
+    <Type Name="Student">
+      <Column Name="Student_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="City_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="PersonalID" Type="System.String" DbType="NVarChar(11)" CanBeNull="true" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="City_Student" Member="City" ThisKey="City_id" OtherKey="City_id" Type="City" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.AddCity" Method="AddCity">
+    <Parameter Name="cityName" Type="System.String" DbType="NVarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AddStudent" Method="AddStudent">
+    <Parameter Name="city_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="firstName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="lastName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="personalID" Type="System.String" DbType="NVarChar(11)" />
+    <Parameter Name="phoneNumber" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="email" Type="System.String" DbType="NVarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeleteCity" Method="DeleteCity">
+    <Parameter Name="city_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeleteStudent" Method="DeleteStudent">
+    <Parameter Name="student_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.UpdateCity" Method="UpdateCity">
+    <Parameter Name="city_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="newCityName" Type="System.String" DbType="NVarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.UpdateStudent" Method="UpdateStudent">
+    <Parameter Name="student_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="newCity_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="newFirstName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="newLastName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="newPersonalID" Type="System.String" DbType="NVarChar(11)" />
+    <Parameter Name="newPhoneNumber" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="newEmail" Type="System.String" DbType="NVarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>
