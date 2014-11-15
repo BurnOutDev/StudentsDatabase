@@ -243,7 +243,11 @@ namespace StudentsDatabase.Design
         {
             if (MetroMessageBox.Show(this, "ნამდვლად გსურთ ამ ქალაქის წაშლა?", "წაშლის ოპერაცია", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
-                throw new NotImplementedException("მეთოდი ცარიელია");
+                var linq = (from x in StudentsDb.Cities
+                            where x.CityName == mGridCities.SelectedRows[0].Cells[0].Value
+                            select x).FirstOrDefault();
+                StudentsDb.DeleteCity(linq.City_id);
+                ReFillDatagridviews();
             }
         }
 
@@ -251,7 +255,11 @@ namespace StudentsDatabase.Design
         {
             if (MetroMessageBox.Show(this, "ნამდვლად გსურთ ამ სტუდენტის წაშლა?", "წაშლის ოპერაცია", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
-                throw new NotImplementedException("მეთოდი ცარიელია");
+                var linq = (from x in StudentsDb.Students
+                           where x.PersonalID == mGridStudents.SelectedRows[0].Cells[1].Value
+                           select x).FirstOrDefault();
+                StudentsDb.DeleteStudent(linq.Student_id);
+                ReFillDatagridviews();
             }
         }
 
@@ -313,9 +321,13 @@ namespace StudentsDatabase.Design
                             studentM.PhoneNumber
                         );
                 }
-
             }
             ////////////////////////////
+        }
+
+        private void mTileAbout_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

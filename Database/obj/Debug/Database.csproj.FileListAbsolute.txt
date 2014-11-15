@@ -1,0 +1,6 @@
+C:\Users\BurnOut\Documents\Visual Studio 2013\Projects\StudentsDatabase\Database\bin\Debug\Database.pdb
+C:\Users\BurnOut\Documents\Visual Studio 2013\Projects\StudentsDatabase\Database\obj\Debug\Database.pdb
+C:\Users\BurnOut\Documents\Visual Studio 2013\Projects\StudentsDatabase\Database\bin\Debug\Database.dll.config
+C:\Users\BurnOut\Documents\Visual Studio 2013\Projects\StudentsDatabase\Database\bin\Debug\Database.dll
+C:\Users\BurnOut\Documents\Visual Studio 2013\Projects\StudentsDatabase\Database\obj\Debug\Database.dll
+C:\Users\BurnOut\Documents\Visual Studio 2013\Projects\StudentsDatabase\Database\obj\Debug\Database.csprojResolveAssemblyReference.cache

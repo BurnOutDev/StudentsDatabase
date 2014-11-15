@@ -14,6 +14,12 @@ namespace StudentsDatabase.Design
         [STAThread]
         static void Main()
         {
+            var db = new StudentsDatabase.Database.StudentsDbContext();
+            if (!db.DatabaseExists())
+                db.CreateDatabase();
+            db.SubmitChanges();
+            db.Dispose();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());

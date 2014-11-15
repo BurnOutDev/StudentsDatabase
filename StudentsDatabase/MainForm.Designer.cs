@@ -225,6 +225,7 @@ namespace StudentsDatabase.Design
             this.mGridStudents.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.mGridStudents.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.mGridStudents.Location = new System.Drawing.Point(0, 0);
+            this.mGridStudents.MultiSelect = false;
             this.mGridStudents.Name = "mGridStudents";
             this.mGridStudents.ReadOnly = true;
             this.mGridStudents.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -454,6 +455,7 @@ namespace StudentsDatabase.Design
             this.mTileAbout.TileImage = global::StudentsDatabase.Properties.Resources.InfoBoldL1;
             this.mTileAbout.UseSelectable = true;
             this.mTileAbout.UseTileImage = true;
+            this.mTileAbout.Click += new System.EventHandler(this.mTileAbout_Click);
             // 
             // MainForm
             // 
